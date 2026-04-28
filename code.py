@@ -221,6 +221,9 @@ while running:
         nut_v.set_alpha(0)
         nut_x.set_alpha(0)
         dong_hien.set_alpha(0)
+        out += 1
+        if out >= 100:
+            running = False
 
     pygame.display.update()
 
