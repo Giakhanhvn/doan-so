@@ -34,6 +34,7 @@ bảng = 1         #số thứ tự bảng
 số_cần_tìm = 0     #số cần tìm
 alpha_ket_qua = 0  #độ trong suốt của kết quả
 click = False       #biến kiểm tra click chuột
+out = 0            #biến đếm thời gian sau khi hiện kết quả
 
 #tải ảnh hiệu ứng
 hu1 = pygame.image.load("hieu-ung-1.png")
