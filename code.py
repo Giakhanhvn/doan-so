@@ -224,6 +224,7 @@ while running:
         dong_hien.set_alpha(0)
         out += 1
         if out >= 100:
+            print("Bye!")
             running = False
 
     pygame.display.update()
