@@ -4,21 +4,21 @@ pygame.init()
 pygame.mixer.init()
 
 #tiếng đánh chữ
-gõ_phím = pygame.mixer.Sound("gõ-phím.mp3")
+gõ_phím = pygame.mixer.Sound("âm-thanh/gõ-phím.mp3")
 
 #tải nhạc nền
-nhạc_nền = pygame.mixer.music.load("nhạc-nền.mp3")
+nhạc_nền = pygame.mixer.music.load("âm-thanh/nhạc-nền.mp3")
 pygame.mixer.music.play(-1)   #phát nhạc nền liên tục
 pygame.mixer.music.set_volume(0.1)   #điều chỉnh âm lượng nhạc nền
 
 #tạo cửa sổ
 pygame.display.set_caption("Đoán số!")
-icon = pygame.image.load("icon.png")
+icon = pygame.image.load("hình-ảnh/icon.png")
 pygame.display.set_icon(icon)
 screen = pygame.display.set_mode((800, 600))
 
 #tải ảnh nền
-bg = pygame.image.load("bg.png")
+bg = pygame.image.load("hình-ảnh/bg.png").convert()
 bg = pygame.transform.scale(bg, (800, 600))
 
 #biến
@@ -37,39 +37,39 @@ click = False       #biến kiểm tra click chuột
 out = 0            #biến đếm thời gian sau khi hiện kết quả
 
 #tải ảnh hiệu ứng
-hu1 = pygame.image.load("hieu-ung-1.png")
+hu1 = pygame.image.load("hình-ảnh/hieu-ung-1.png").convert()
 hu1 = pygame.transform.scale(hu1, (5, 25))
-hu2 = pygame.image.load("hieu-ung-2.png")
+hu2 = pygame.image.load("hình-ảnh/hieu-ung-2.png").convert()
 hu2 = pygame.transform.scale(hu2, (1000, 25))
 
 #thêm nút tiếp tục
-tiep = pygame.image.load("tiep.png")
+tiep = pygame.image.load("hình-ảnh/tiep.png").convert_alpha()
 tiep = pygame.transform.scale(tiep, (30, 30))
 
 #thêm NPC
-npc = pygame.image.load("huong-dan.png")
+npc = pygame.image.load("hình-ảnh/huong-dan.png").convert_alpha()
 npc = pygame.transform.scale(npc, (80, 80))
 
 #nút v
-nut_v = pygame.image.load("v.png")
+nut_v = pygame.image.load("hình-ảnh/v.png").convert_alpha()
 nut_v = pygame.transform.scale(nut_v, (70, 70))
 
 #nút x
-nut_x = pygame.image.load("x.png")
+nut_x = pygame.image.load("hình-ảnh/x.png").convert_alpha()
 nut_x = pygame.transform.scale(nut_x, (70, 70))
 
 #kết quả
-kq = pygame.image.load("kt.png")
+kq = pygame.image.load("hình-ảnh/kt.png").convert_alpha()
 kq_width, kq_height = kq.get_size()
 kq = pygame.transform.scale(kq, (kq_width * 3, kq_height * 3))
 
 #nút tiếp tục
 bảng_images = [
-    pygame.transform.scale(pygame.image.load(f"bang-{i}.png"), (400, 300))
+    pygame.transform.scale(pygame.image.load(f"hình-ảnh/bang-{i}.png").convert_alpha(), (400, 300))
     for i in range(1, 7)
 ]
 line_images = [
-    pygame.transform.scale(pygame.image.load(f"dong-{i}.png"), (875, 25))
+    pygame.transform.scale(pygame.image.load(f"hình-ảnh/dong-{i}.png").convert_alpha(), (875, 25))
     for i in range(1, 7)
 ]
 
@@ -200,13 +200,13 @@ while running:
 
         if số_cần_tìm <= 9:
             số_2 = số_cần_tìm
-            số_1_hiện = pygame.image.load("0.png")
-            số_2_hiện = pygame.image.load(str(số_2) + ".png")
+            số_1_hiện = pygame.image.load("hình-ảnh/0.png").convert_alpha()
+            số_2_hiện = pygame.image.load(f"hình-ảnh/{số_2}.png").convert_alpha()
         else :
             số_1 = số_cần_tìm // 10
             số_2 = số_cần_tìm % 10
-            số_1_hiện = pygame.image.load(str(số_1) + ".png")
-            số_2_hiện = pygame.image.load(str(số_2) + ".png")
+            số_1_hiện = pygame.image.load(f"hình-ảnh/{số_1}.png").convert_alpha()
+            số_2_hiện = pygame.image.load(f"hình-ảnh/{số_2}.png").convert_alpha()
 
     if bảng == 7:
         screen.blit(kq, (90, 5))
